@@ -1,20 +1,20 @@
 def seti(p):
-    print("Seting ",p,"...")
+    sys.stdout.write("Setting "+str(p)+"...\n")
 def st():
-    print("Starting...")
+    sys.stdout.write("Starting...\n")
 def st2(p):
-    print("Starting ",p,"...")
+    sys.stdout.write("Starting "+str(p)+"...\n")
 def z(p1,p2):
-    print(p1," v",p2," started",sep="")
+    sys.stdout.write(str(p1)+" v"+str(p2)+" started\n")
 def log(p):
-    print(p)
+    sys.stdout.write(str(p)+"\n")
 def getv():
-    return "1-0-5"
+    return "1-1-0"
 def er(er):
-    print("E: ",er)
+    sys.stderr.write("E: "+str(er)+"\n")
 def w(w):
-    print("W: ",w)
+    sys.stdout.write("W: "+str(w)+"\n")
 def debug(m):
-    print("DEBUG:",m)
+    sys.stdout.write("DEBUG: "+str(m)+"\n")
 def d(fi):
-    print(f"file {fi} deleted")
+    sys.stdout.write("file "+str(fi)+" deleted\n")
