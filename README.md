@@ -15,14 +15,14 @@
 - [Функции](#-функции)
   - [seti](#seti)
   - [st](#st)
-  - [st2](#st2)
   - [z](#z)
   - [log](#log)
   - [getv](#getv)
   - [er](#er)
-  - [w](#w)
+  - [warn](#warn)
   - [debug](#debug)
   - [d](#d)
+  - [info](#info)
 - [Пример использования](#-пример-использования)
 - [Заметки](#-заметки)
 - [Лицензия](#-лицензия)
@@ -48,22 +48,12 @@ from tlogs import *
 
 ```python
 seti("config")
-# Seting  config ...
+# Setting  config ...
 ```
 
 | Параметр | Тип | Описание |
 |----------|-----|----------|
 | `p` | `str` | Название настраиваемого параметра |
-
----
-
-### `st()`
-Выводит общее сообщение о запуске процесса.
-
-```python
-st()
-# Starting...
-```
 
 ---
 
@@ -137,11 +127,11 @@ er("Connection failed")
 
 ---
 
-### `w(w)`
+### `warn(w)`
 Выводит предупреждение с префиксом `W:`.
 
 ```python
-w("Low memory")
+warn("Low memory")
 # W:  Low memory
 ```
 
@@ -179,6 +169,20 @@ d("temp.txt")
 
 ---
 
+### `info`
+Сообщает об удалении файла.
+
+```python
+info("ok")
+# INFO: ok
+```
+
+| Параметр | Тип | Описание |
+|----------|-----|----------|
+| `p` | `Any` | Информация |
+
+---
+
 ## 💡 Пример использования
 
 ```python
@@ -186,13 +190,14 @@ from tlogs import *
 
 def main():
     log(f"Version: {getv()}")
-    st()
     seti("database")
+    st2("server")
     z("client", "3.0.4")
     debug("Initialization complete")
-    w("Cache is empty")
+    warn("Cache is empty")
     d("old_log.txt")
     er("Something went wrong")
+    info("ok")
 
 if __name__ == "__main__":
     main()
@@ -200,14 +205,15 @@ if __name__ == "__main__":
 
 **Вывод:**
 ```
-Version: 1-0-5
-Starting...
-Seting  database ...
+Version: 1-1-1
+Setting  database ...
+Starting server...
 client v3.0.4 started
 DEBUG: Initialization complete
 W:  Cache is empty
 file old_log.txt deleted
 E:  Something went wrong
+INFO: ok
 ```
 
 ---
